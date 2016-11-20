@@ -1,7 +1,14 @@
 /*font-family: 'Delius Unicase', cursive;*/
 
-.container-fluid {
-  border: 1px solid black;
-  color: black;
+.navbar {
   background-color: #B2A612;
+}
+
+.icon-bar {
+  background-color: #19CCFF;
+}
+
+.starImage {
+  padding-top: -20px;
+  background-color: yellow;
 }
