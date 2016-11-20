@@ -1,1 +1,3 @@
-$('.dropdown-toggle').dropdown('toggle')
+$(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
