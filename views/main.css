@@ -1,14 +1,37 @@
 /*font-family: 'Delius Unicase', cursive;*/
 
 .navbar {
-  background-color: #B2A612;
+  background-color: rgb(236,194,27);
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: black;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
 }
 
 .icon-bar {
   background-color: #19CCFF;
 }
 
-.starImage {
-  padding-top: -20px;
-  background-color: yellow;
+a {
+  color: inherit;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
