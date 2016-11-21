@@ -1,5 +1,37 @@
 /*font-family: 'Delius Unicase', cursive;*/
 
+header {
+  background-image: url('/Users/MartinUriarte/wdi/wip/project-01/rubber-duck/welcomeBackground.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: black;
+}
+header .welcomeText {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+header .welcomeText .welcomeMotto {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+header .welcomeText .welcomeBrandName {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+
 .navbar {
   background-color: rgb(236,194,27);
 }
@@ -12,8 +44,8 @@
   color: black;
 }
 
-.icon-bar {
-  background-color: #19CCFF;
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: rgb(91,192,222);
 }
 
 a {
