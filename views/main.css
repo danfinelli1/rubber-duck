@@ -1,7 +1,7 @@
 /*font-family: 'Delius Unicase', cursive;*/
 
 header {
-  background-image: url('/Users/MartinUriarte/wdi/wip/project-01/rubber-duck/welcomeBackground.png');
+  background-image: url('rubber-duck/welcomeBackground.png');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -17,14 +17,14 @@ header .welcomeText {
   padding-bottom: 50px;
 }
 header .welcomeText .welcomeMotto {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: 22px;
   line-height: 22px;
   margin-bottom: 25px;
 }
 header .welcomeText .welcomeBrandName {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 50px;
@@ -48,6 +48,10 @@ header .welcomeText .welcomeBrandName {
   background-color: rgb(91,192,222);
 }
 
+.aboutText {
+  color: white;
+}
+
 a {
   color: inherit;
 }
@@ -66,4 +70,27 @@ a:hover {
 
 a:active {
     text-decoration: none;
+}
+
+section {
+  padding: 100px 0;
+  margin: 0 100px;
+}
+section h2.section-heading {
+  font-size: 150px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: white;
+}
+section h3.section-subheading {
+  font-size: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 75px;
+  color: white;
+}
+
+#services {
+  background-color: rgb(92,184,92);
 }
