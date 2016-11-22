@@ -114,6 +114,11 @@ img {
   height: auto;
 }
 
+footer {
+  text-align: center;
+  background-color: rgb(236,194,27);
+}
+
 #aboutDuck {
   background-color: rgb(92,184,92);
 }
