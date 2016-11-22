@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Question</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/hbApp.js"></script>
+</head>
+
+<body>
+
+    <section id='question-form' class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+                <form class="question-form">
+                    <fieldset>
+
+                        <legend>Add New Question</legend>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="name">Question language</label>
+                            <div class="col-md-4">
+                                <input id="language" name="language" type="text" placeholder="" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="text">Question</label>
+                            <div class="col-md-4">
+                                <input id="text" name="text" type="text" placeholder="" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="answer">Answer</label>
+                            <div class="col-md-4">
+                                <input id="answer" name="answer" type="boolean" placeholder="yes or no" class="form-control input-md">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="relatedLinks">Related Links (separated by commas)</label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" id="relatedLinks" name="relatedLinks"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <br>
+                            <label class="col-md-4 control-label" for="singlebutton">Save Question</label>
+                            <div class="col-md-4">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

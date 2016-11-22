@@ -1,29 +1,47 @@
-//require express in our app
+// server.js
+
+// require express framework and additional modules
 var express = require('express'),
-  bodyParser = require('body-parser');
+  app = express(),
+  bodyParser = require('body-parser'),
+  mongoose = require('mongoose'),
+  session = require('express-session'),
+  hbs = require('hbs'),
+  Question = require('./models/questions.js')
+  mydb = require('./models')
 
-// generate a new express app and call it 'app'
-var app = express();
-
-// serve static files in public
+// middleware
 app.use(express.static('public'));
+app.set('view engine', 'hbs');
+app.use(bodyParser.urlencoded({extended: true}));
 
-// body parser config to accept our datatypes
-app.use(bodyParser.urlencoded({ extended: true }));
+hbs.localsAsTemplateData(app);
 
 var controllers = require('./controllers');
+
 
 /**********
  * ROUTES *
  **********/
 
-/*
- * HTML Endpoints
- */
 
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+app.get('/form', function addQPage(req, res){
+  res.render('qForm')
+});
+app.get('/api', controllers.questions.index);
+app.get('/html', function quesitonPage (req, res){
+  mydb.Question.findOne({}, function(err, quest){
+
+    res.render('html', {Question: quest});
+  });
+});
+app.get('/api', controllers.questions.answer);
+app.post('/api', controllers.questions.create);
+
+
 
 /**********
  * SERVER *

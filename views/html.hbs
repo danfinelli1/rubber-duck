@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rubber Duck</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Vendor Scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+    <!-- Applications Scripts -->
+    <script src = 'scripts/htmlApp.js'></script>
+
+  </head>
+  <body>
+    <div id = 'duckBubble'>{{Question.text}}<br><br><br><br><br>
+
+    <form class="form-userResponse" data-id = {{Question._id}}>
+      <legend>Did this answer fix your problem?</legend>
+      <input id="userAnswer" name="userAnswer" type="text" placeholder="Please enter 'Yes' or 'No'." class="form-control" required="">
+      <input id="singlebutton" name="userAnswer" type="submit" class="btn btn-primary">
+    </div>
+
+    </form>
+  </body>
+</html>
