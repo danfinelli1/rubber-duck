@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
 
     <title>Rubber Duck</title>
@@ -11,19 +12,19 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
     <!-- Applications Scripts -->
-    <script src = 'scripts/htmlApp.js'></script>
+    <script src='scripts/htmlApp.js'></script>
 
-  </head>
-  <body><script>
+</head>
 
-  </script>
-    <div id = 'duckBubble'>
+<body>
+    <div id='duckBubble'><br></div>
+    <div class='userResponse' data-id= {{Question._id}}>
+        <span id='input'>Did this answer fix your problem?</span>
+        <button id="yesBtn" name="Yes" type="button" class="btn btn-primary">Yes</button>
+        <button id="noBtn" name="No" type="button" class="btn btn-primary">No</button>
     </div>
-          <div class = 'userResponse' data-id = {{Question._id}}>
-            <span id = 'input'>Did this answer fix your problem?</span>
-          <button id="yesBtn" name="Yes" type="button" class="btn btn-primary">Yes</button>
-          <button id="noBtn" name="No" type="button" class="btn btn-primary">No</button>
-          </div>
+    <div id = 'relatedLink'></div>
 
-  </body>
+</body>
+
 </html>

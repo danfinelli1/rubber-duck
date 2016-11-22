@@ -41,6 +41,7 @@ $(document).ready(function() {
 function nextQuestion(data) {
     $('#duckBubble').empty();
     $('#duckBubble').prepend(data.questions[currQuestion].text);
+    $('#relatedLink').append('<a href="'+data.questions[currQuestion].relatedLinks[0]+'"></a>');
     console.log(data);
 }
 
@@ -52,4 +53,5 @@ function postUserRes(data) {
 function getQuestion(data) {
 
     $('#duckBubble').prepend(data.questions[currQuestion].text);
+    $('#relatedLink').append('<a href="'+data.questions[currQuestion].relatedLinks[0]+'">Learn More!</a>');
 }
