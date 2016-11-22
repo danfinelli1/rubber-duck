@@ -33,7 +33,7 @@ app.get('/form', function addQPage(req, res){
 });
 app.get('/api', controllers.questions.index);
 app.get('/html', function quesitonPage (req, res){
-  mydb.Question.findOne({}, function(err, quest){
+  mydb.Question.findOne({language: 'html'}, function(err, quest){
 
     res.render('html', [{Question: quest}]);
   });
