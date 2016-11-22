@@ -38,32 +38,38 @@ $(document).ready(function() {
         runQuestions(stackDecider);
     });
 
-  $('.question-form').on('submit', function(event) {
-    event.preventDefault();
-    $.ajax({
-      method: 'POST',
-      url: '/api',
-      type: 'json',
-      data: $(this).serialize(),
-      success: postQuestion
+    $('.question-form').on('submit', function(event) {
+        event.preventDefault();
+        $.ajax({
+            method: 'POST',
+            url: '/api',
+            type: 'json',
+            data: $(this).serialize(),
+            success: postQuestion
+        });
     });
-});
 
 });
 
 function runQuestions(num) {
     switch (num) {
         case 1:
-          window.location.href = "/html";
+            window.location.href = "/html";
             break;
         case 2:
-          window.location.href = "/html"
+            window.location.href = "/css"
             break;
-
+        case 3:
+            window.location.href = "/js";
+            break;
+        case 4:
+            window.location.href = "/css"
+            break;
         default:
 
     }
 }
-function postQuestion(data){
-console.log(data);
+
+function postQuestion(data) {
+    console.log(data);
 }
