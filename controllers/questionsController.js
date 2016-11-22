@@ -59,4 +59,3 @@ module.exports = {
     create: create,
     show: show
 };
-//db.connectionClose();//WORST bug
