@@ -26,9 +26,10 @@ To put together everything that we've learned in the past month. This project is
 
 ## Specs
 
+* Version: 1.0.0
 * Release Date: 11/22/2016
 * Developers: @themartinuriarte @danfinelli1
-* Difficulty: 7/10
+* Difficulty: 8.5/10
 * Overall Satisfaction Rating: 3.5/10
 
 Not knowing what type of website we wanted to web app we wanted to build for this project, we went to the throwing board and threw as much as we could at it. Eventually what was apparent was that we wanted to create something that would be of some use to somebody and not just another throwaway website. Daniel Finelli came up with a half-serious/half-joking suggestion of using a rubber duck and Martin Uriarte took off with it.
@@ -40,6 +41,10 @@ RBR Duck and it's current version (1.0) allows you to select a technology that y
 ## Interesting Code
 
 Daniel Finelli
+
+```
+
+```
 
 Martin Uriarte
 
@@ -58,6 +63,7 @@ find help and a online community of programmers to help. Quack!"/>
 ## Future Objectives
 
 * Cleaner code
+* Push up to Heroku
 * Login Page
 * Signup Page
 * User Profiles
