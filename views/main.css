@@ -1,0 +1,126 @@
+header {
+  background-image: url('/Users/MartinUriarte/wdi/wip/project-01/rubber-duck/welcomeBackground.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: black;
+}
+header .welcomeText {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+header .welcomeText .welcomeMotto {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+header .welcomeText .welcomeBrandName {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+
+.navbar {
+  background-color: rgb(236,194,27);
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: black;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: rgb(91,192,222);
+}
+
+.aboutText {
+  color: white;
+}
+
+.teamSection{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.teamSection img {
+  margin: 0 auto;
+  border: 7px solid white;
+}
+.teamSection h4 {
+  margin-top: 25px;
+  margin-bottom: 0;
+  text-transform: none;
+}
+.teamSection p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+section {
+  padding: 100px 0;
+  margin: 0 100px;
+}
+section h2.section-heading {
+  font-size: 150px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: white;
+  text-decoration: underline;
+}
+section h3.section-subheading {
+  font-size: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 75px;
+  color: white;
+}
+
+img {
+  width: 250px;
+  height: auto;
+}
+
+footer {
+  text-align: center;
+  background-color: rgb(236,194,27);
+}
+
+#aboutDuck {
+  background-color: rgb(92,184,92);
+}
+
+#ourTeam {
+  background-color: rgb(91,192,222);
+}
