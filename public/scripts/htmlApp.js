@@ -39,9 +39,11 @@ $(document).ready(function() {
 });
 
 function nextQuestion(data) {
+  console.log(currQuestion);
     $('#duckBubble').empty();
     $('#duckBubble').prepend(data.questions[currQuestion].text);
-    $('#relatedLink').append('<a href="'+data.questions[currQuestion].relatedLinks[0]+'"></a>');
+    $('#relatedLink').empty();
+    $('#relatedLink').append('<a href="'+data.questions[currQuestion].relatedLinks[0]+'">Learn More!</a>');
     console.log(data);
 }
 
@@ -51,7 +53,7 @@ function postUserRes(data) {
 
 
 function getQuestion(data) {
-
+console.log(currQuestion);
     $('#duckBubble').prepend(data.questions[currQuestion].text);
     $('#relatedLink').append('<a href="'+data.questions[currQuestion].relatedLinks[0]+'">Learn More!</a>');
 }
