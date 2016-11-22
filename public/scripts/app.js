@@ -38,6 +38,16 @@ $(document).ready(function() {
         runQuestions(stackDecider);
     });
 
+  $('.question-form').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: 'POST',
+      url: '/api',
+      type: 'json',
+      data: $(this).serialize(),
+      success: postQuestion
+    });
+});
 
 });
 
@@ -53,4 +63,7 @@ function runQuestions(num) {
         default:
 
     }
+}
+function postQuestion(data){
+console.log(data);
 }
