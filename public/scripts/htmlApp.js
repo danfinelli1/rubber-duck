@@ -3,12 +3,14 @@ console.log("Sanity Check: JS is working!");
 var currQuestion = 0;
 
 $(document).ready(function() {
+
     $.ajax({
         method: 'GET',
         url: '/api',
         type: 'json',
         success: getQuestion
     });
+
 
     $('#yesBtn').on('click', function(event) {
         event.preventDefault();
