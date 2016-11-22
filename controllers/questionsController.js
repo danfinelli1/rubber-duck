@@ -17,11 +17,15 @@ function index(req, res) {
 }
 
 function answer(req, res) {
-    if (req.params.userAnswer === 'yes') {
-          console.log('it got it');
-    }
 
-
+    mydb.Question.findOneAndUpdate({_id: req.params._id},
+      { $set:
+          {
+            answer: true
+          }
+       });
+    mydb.Question.save();
+    res.json({Question: Question});
 }
 
 function create(req, res) {
@@ -34,7 +38,6 @@ function create(req, res) {
     });
     newQuestion.save();
 
-    // questions.push(newQuestion);
     res.json({
         questions: newQuestion
     });

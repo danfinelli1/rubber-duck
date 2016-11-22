@@ -35,10 +35,14 @@ app.get('/api', controllers.questions.index);
 app.get('/html', function quesitonPage (req, res){
   mydb.Question.findOne({}, function(err, quest){
 
-    res.render('html', {Question: quest});
+    res.render('html', [{Question: quest}]);
   });
 });
-app.get('/api', controllers.questions.answer);
+app.get('/api/:_id', function (req, res){
+  mydb.Question.findOne({_id: req.params._id }, function(err, data) {
+    res.json(data);
+  });
+});
 app.post('/api', controllers.questions.create);
 
 

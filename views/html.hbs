@@ -14,15 +14,16 @@
     <script src = 'scripts/htmlApp.js'></script>
 
   </head>
-  <body>
-    <div id = 'duckBubble'>{{Question.text}}<br><br><br><br><br>
+  <body><script>
 
-    <form class="form-userResponse" data-id = {{Question._id}}>
-      <legend>Did this answer fix your problem?</legend>
-      <input id="userAnswer" name="userAnswer" type="text" placeholder="Please enter 'Yes' or 'No'." class="form-control" required="">
-      <input id="singlebutton" name="userAnswer" type="submit" class="btn btn-primary">
+  </script>
+    <div id = 'duckBubble'>
     </div>
+          <div class = 'userResponse' data-id = {{Question._id}}>
+            <span id = 'input'>Did this answer fix your problem?</span>
+          <button id="yesBtn" name="Yes" type="button" class="btn btn-primary">Yes</button>
+          <button id="noBtn" name="No" type="button" class="btn btn-primary">No</button>
+          </div>
 
-    </form>
   </body>
 </html>

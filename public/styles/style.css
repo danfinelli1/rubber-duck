@@ -1,6 +1,19 @@
+.userResponse{
+    border: 2px solid black;
+    width: 400px;
+    height: 150px;
+    position: relative;
+}
+.btn{
+  margin-top: 185px;
+}
+#input{
+  margin-top: 150px;
+}
+
 #duckBubble{
   border: 2px solid black;
   width: 400px;
-  height: 300px;
+  height: 150px;
   position: absolute;
 }
