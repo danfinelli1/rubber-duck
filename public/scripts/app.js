@@ -1,8 +1,8 @@
 console.log("Sanity Check: JS is working!");
 var currQuestion = 0;
+var stack = 0;
 
 $(document).ready(function() {
-
     $.ajax({
         method: 'GET',
         url: '/api',
@@ -12,22 +12,22 @@ $(document).ready(function() {
 
     $('#htmlBtn').on('click', function(event) {
         event.preventDefault();
-        var stackDecider = 1;
-        stackDecider=1;
-
-        runQuestions(stackDecider);
+         stack++;
+        runQuestions(stack);
     });
 
     $('#cssBtn').on('click', function(event) {
         event.preventDefault();
-        var stackDecider = 2;
-        stackDecider=2;
-        runQuestions(stackDecider);
+        stack++;
+        stack++;
+        runQuestions(stack);
     });
     $('#javascriptBtn').on('click', function(event) {
         event.preventDefault();
-        var stackDecider = 3;
-        runQuestions(stackDecider);
+        stack++;
+        stack++;
+        stack++;
+        runQuestions(stack);
     });
 
     $('#yesBtn').on('click', function(event) {
@@ -48,6 +48,7 @@ $(document).ready(function() {
 
     $('#noBtn').on('click', function(event) {
         event.preventDefault();
+        stack++;
         currQuestion++;
         $.ajax({
             method: 'GET',
@@ -57,41 +58,41 @@ $(document).ready(function() {
         });
 
     });
-    function runQuestions(stackDecider) {
-        switch (stackDecider) {
+    function runQuestions(stack) {
+      console.log(stack);
+        switch (stack) {
             case 1:
                 $('#duckBubble').prepend(data.questions[currQuestion].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider].relatedLinks[0] + '">Learn More!</a>');
+                $('#relatedLink').append('<a href="' + data.questions[stack].relatedLinks[0] + '">Learn More!</a>');
                 break;
             case 2:
                 $('#duckBubble').prepend(data.questions[currQuestion + 5].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider + 5].relatedLinks[0] + '">Learn More!</a>');
+                $('#relatedLink').append('<a href="' + data.questions[stack + 5].relatedLinks[0] + '">Learn More!</a>');
                 break;
             case 3:
                 $('#duckBubble').prepend(data.questions[currQuestion + 10].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider + 10].relatedLinks[0] + '">Learn More!</a>');
+                $('#relatedLink').append('<a href="' + data.questions[stack + 10].relatedLinks[0] + '">Learn More!</a>');
                 break;
         }
     }
 
     function nextQuestion(data) {
       console.log(currQuestion);
-        console.log(stackDecider);
-        console.log(data);
+        console.log(stack);
         $('#duckBubble').empty();
         $('#relatedLink').empty();
-        switch (stackDecider) {
+        switch (currQuestion) {
             case 1:
-                $('#duckBubble').prepend(data.questions[stackDecider].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider].relatedLinks[0] + '">Learn More!</a>');
+                $('#duckBubble').prepend(data.questions[currQuestion-1].text);
+                $('#relatedLink').append('<a href="' + data.questions[currQuestion-1].relatedLinks[0] + '">Learn More!</a>');
             case 2:
-                $('#duckBubble').prepend(data.questions[currQuestion].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider+5].relatedLinks[0] + '">Learn More!</a>');
+                $('#duckBubble').prepend(data.questions[currQuestion+4].text);
+                $('#relatedLink').append('<a href="' + data.questions[currQuestion+4].relatedLinks[0] + '">Learn More!</a>');
             case 3:
-                $('#duckBubble').prepend(data.questions[currQuestion].text);
-                $('#relatedLink').append('<a href="' + data.questions[stackDecider+10].relatedLinks[0] + '">Learn More!</a>');
+                $('#duckBubble').prepend(data.questions[currQuestion+9].text);
+                $('#relatedLink').append('<a href="' + data.questions[currQuestion+9].relatedLinks[0] + '">Learn More!</a>');
         }
-       if (currQuestion === data.questions[currQuestion].length - 1) {
+       if (currQuestion > data.questions[currQuestion].length - 1) {
             currQuestion = 0;
             $('#relatedLink').empty();
             $('#duckBubble').empty();
