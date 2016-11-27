@@ -1,4 +1,5 @@
 header {
+  /* TODO: Don't put your images in the root of your web application. It's a mess in there because of this -jc */
   background-image: url('/Users/MartinUriarte/wdi/wip/project-01/rubber-duck/welcomeBackground.png');
   background-repeat: no-repeat;
   background-attachment: scroll;

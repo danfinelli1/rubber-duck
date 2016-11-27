@@ -1,3 +1,5 @@
+# What is this file?
+
 -----BEGIN PGP SIGNATURE-----
 
 iQIcBAABAgAGBQJVtsQZAAoJEL4Otqok88l4GYEQAJ5hK4PTa5yoNWcCzm/QCQO5

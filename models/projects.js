@@ -1,3 +1,5 @@
+// TODO: this code is unused. Please remove unused code from production codebase -jc
+
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 

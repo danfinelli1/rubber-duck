@@ -1,6 +1,7 @@
 // server.js
 
 // require express framework and additional modules
+// TODO: Why did you include ejs in your package.json yet never use it on your server.js? -jc
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
@@ -46,11 +47,13 @@ app.get('/form', function addQPage(req, res) {
 app.get('/api', controllers.questions.index);
 
 app.get('/html', function quesitonPage(req, res) {
-
+    // TODO: You are calling findOne on your Question DB and passing in an empty search {}. What is the expected DB return value? -jc
     mydb.Question.findOne({}, function(err, quest) {
+      // TODO: What if there is an error? -jc
 
+        // TODO: Are you supposed to be sending a json object or an array of json objects as the second argument? -jc
         res.render('html', [{
-
+          // TODO: this shouldn't be capitalized -jc
             Question: quest
 
         }]);
@@ -59,6 +62,7 @@ app.get('/html', function quesitonPage(req, res) {
 
 });
 
+// TODO: The RESTful routing convention states that this route should return a single 'api' object from the DB of apis. Should you use /api/Question/:id instad? -jc
 app.get('/api/:_id', function(req, res) {
 
     mydb.Question.findOne({
@@ -66,19 +70,21 @@ app.get('/api/:_id', function(req, res) {
         _id: req.params._id
 
     }, function(err, data) {
-
+      // TODO: What if there is an error? -jc
         res.json(data);
 
     });
 
 });
 
+//TODO: Did you mean to call the function questionPage? -jc
 app.get('/css', function quesitonPage(req, res) {
-
+    // TODO: You are calling findOne on your Question DB and passing in an empty search {}. What is the expected DB return value? -jc
     mydb.Question.findOne({}, function(err, quest) {
 
+        // TODO: Are you supposed to be sending a json object or an array of json objects as the second argument? -jc
         res.render('html', [{
-
+          // TODO: this shouldn't be capitalized -jc
             Question: quest
 
         }]);

@@ -30,3 +30,6 @@
     "mongoose": "^4.6.8"
   }
 }
+
+/* TODO: Why did you include ejs, g, and module? -jc*/
+/* TODO: create a .gitignore file and include node_modules on the list of ignored folders so other developers don't have to downloaded a bloated project -jc */
