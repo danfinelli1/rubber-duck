@@ -1,0 +1,103 @@
+.userResponse{
+    border: 2px solid black;
+    width: 400px;
+    height: 150px;
+    position: relative;
+}
+.btn{
+  margin-top: 185px;
+}
+#input{
+  margin-top: 150px;
+}
+
+#duckBubble{
+  border: 2px solid black;
+  width: 400px;
+  height: 150px;
+  position: absolute;
+}
+body {
+ background-color: rgb(91,192,222);
+ }
+
+ .navbar {
+   background-color: rgb(236,194,27);
+ }
+
+ .navbar-default .navbar-nav>li>a {
+   color: black;
+ }
+
+ .navbar-default .navbar-brand {
+   color: black;
+ }
+
+ .navbar-default .navbar-toggle .icon-bar {
+   background-color: rgb(91,192,222);
+ }
+
+ .aboutText {
+   color: white;
+ }
+
+ a {
+   color: inherit;
+ }
+
+ a:link {
+     text-decoration: none;
+ }
+
+ a:visited {
+     text-decoration: none;
+ }
+
+ a:hover {
+     text-decoration: none;
+ }
+
+ a:active {
+     text-decoration: none;
+ }
+
+ section {
+   padding: 100px 0;
+   margin: 0 100px;
+ }
+ section h2.section-heading {
+   font-size: 150px;
+   margin-top: 0;
+   margin-bottom: 5px;
+   color: white;
+   text-decoration: underline;
+ }
+ section h3.section-subheading {
+   font-size: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   text-transform: none;
+   font-weight: 400;
+   margin-bottom: 75px;
+   color: white;
+   text-decoration: underline;
+ }
+
+img {
+   width: 550px;
+   height: auto;
+   border: 30px solid rgb(91,192,222);
+   border-radius: 900px;
+ }
+
+ footer {
+   text-align: center;
+   background-color: rgb(236,194,27);
+ }
+
+  #solutionText {
+   margin-top: 100px;
+   padding: 30px;
+   border: 10px solid white;
+   border-radius: 25px;
+   background-color: white;
+ }
