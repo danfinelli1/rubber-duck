@@ -6,38 +6,36 @@ $(document).ready(function() {
     var data = $.ajax({
         method: 'GET',
         url: '/api',
-        type: 'json',
-        success: getQuestion
+        type: 'json'
     });
 
     $('#htmlBtn').on('click', function(event) {
         event.preventDefault();
-        stack = 1;
         window.location.href = "/html";
-        runQuestions(stack);
+        runQuestions(data.responseJSON[0], currQuestion-1);
+
     });
 
     $('#cssBtn').on('click', function(event) {
         event.preventDefault();
-        stack = 2;
         window.location.href = "/css";
         runQuestions(stack);
     });
-
-    $('#javascriptBtn').on('click', function(event) {
-        event.preventDefault();
-        stack = 3;
-        window.location.href = "/js";
-        runQuestions(stack);
-    });
+    //
+    // $('#javascriptBtn').on('click', function(event) {
+    //     event.preventDefault();
+    //     var stack = 3;
+    //     window.location.href = "/js";
+    //     runQuestions(stack);
+    // });
 
     $('#yesBtn').on('click', function(event) {
         event.preventDefault();
-        currQuestion++;
+        window.alert('You have found your answer!');
     });
 
     $('.question-form').on('submit', function(event) {
-      console.log($(this).serialize());
+        console.log($(this).serialize());
         event.preventDefault();
         $.ajax({
             method: 'POST',
@@ -51,51 +49,41 @@ $(document).ready(function() {
     $('#noBtn').on('click', function(event) {
         event.preventDefault();
         currQuestion++;
-
-
-        function runQuestions(stack) {
-          console.log(stack);
-          switch (stack) {
-            case 1:
-            $('#duckBubble').prepend(data.questions[currQuestion].text);
-            $('#relatedLink').append('<a href="' + data.questions[stack].relatedLinks[0] + '">Learn More!</a>');
+        console.log('stack '+stack);
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case '/html':
+            console.log('hi');
+            runQuestions(data.responseJSON[0], currQuestion-1);
             break;
-            case 2:
-            $('#duckBubble').prepend(data.questions[currQuestion + 5].text);
-            $('#relatedLink').append('<a href="' + data.questions[stack + 5].relatedLinks[0] + '">Learn More!</a>');
-            break;
-            case 3:
-            $('#duckBubble').prepend(data.questions[currQuestion + 10].text);
-            $('#relatedLink').append('<a href="' + data.questions[stack + 10].relatedLinks[0] + '">Learn More!</a>');
-            break;
-          }
+          case '/css':
+            console.log('css');
+            runQuestions(data.responseJSON[1], currQuestion-1);
+          case '/js':
+            console.log('js');
+            runQuestions(data.responseJSON[2], currQuestion-1);
         }
     });
 
-    function postQuestion(data){
+
+    function runQuestions(data, currQuestion) {
       console.log(data);
+        $('#relatedLink').empty();
+        $('#duckBubble').empty();
+        $('#duckBubble').prepend(data.questions[currQuestion].text);
+        $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks + '">Learn More!</a>');
     }
 
-    function nextQuestion(data) {
+
+    function postQuestion(data) {
+        console.log(data);
+    }
+
+    function nextQuestion(currQuestion) {
         console.log(currQuestion);
-        console.log(stack);
-        switch (currQuestion) {
-            case 1:
-                $('#relatedLink').empty();
-                $('#duckBubble').empty();
-                $('#duckBubble').prepend(data.questions[currQuestion - 1].text);
-                $('#relatedLink').append('<a href="' + data.questions[currQuestion - 1].relatedLinks[0] + '">Learn More!</a>');
-            case 2:
-                $('#relatedLink').empty();
-                $('#duckBubble').empty();
-                $('#duckBubble').prepend(data.questions[currQuestion + 4].text);
-                $('#relatedLink').append('<a href="' + data.questions[currQuestion + 4].relatedLinks[0] + '">Learn More!</a>');
-            case 3:
-                $('#relatedLink').empty();
-                $('#duckBubble').empty();
-                $('#duckBubble').prepend(data.questions[currQuestion + 9].text);
-                $('#relatedLink').append('<a href="' + data.questions[currQuestion + 9].relatedLinks[0] + '">Learn More!</a>');
-        }
+
+        $('#duckBubble').prepend(data.questions[stack].text);
+        $('#relatedLink').append('<a href="' + data.questions[currQuestion - 1].relatedLinks[0] + '">Learn More!</a>');
         if (currQuestion > data.questions[currQuestion].length - 1) {
             currQuestion = 0;
             $('#relatedLink').empty();
@@ -104,11 +92,19 @@ $(document).ready(function() {
         }
     }
 
+    // function getQuestion(data) {
+    //     console.log(stack);
+    //     console.log(data);
+    //
+    //     var html = data.find(function(err, succ) {
+    //         console.log(succ);
+    //         succ = html;
+    //     }, {
+    //         name: 'css'
+    //     });
+    //     console.log(currQuestion);
+    //     $('#duckBubble').prepend(data[0].questions[0].text);
+    //     $('#relatedLink').append('<a href="' + data[0].questions[0].relatedLinks + '">Learn More!</a>');
+    // }
+
 });
-
-
-function getQuestion(data) {
-    console.log(currQuestion);
-    $('#duckBubble').prepend(data.questions[currQuestion].text);
-    $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks[0] + '">Learn More!</a>');
-}

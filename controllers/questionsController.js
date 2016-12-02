@@ -4,9 +4,6 @@
 var mongoose = require('mongoose');
 var mydb = require('../models');
 
-// var Question = mydb.Question;
-
-
 function index(req, res) {
     mydb.Language.find({}, function(err, succ) {
         res.json( succ );
@@ -19,7 +16,6 @@ function create(req, res) {
     relatedLinks: req.body.relatedLinks
   });
   newQuestion.save();
-
     if (mydb.Language.findOne({name: req.body.language}, function(err, lang){
       if(lang!=null){
         lang.questions.push(newQuestion);
@@ -40,7 +36,6 @@ function create(req, res) {
 function show(req, res) {
     res.json(res);
 }
-
 
 // export public methods here
 module.exports = {
