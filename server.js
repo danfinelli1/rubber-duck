@@ -5,25 +5,19 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    session = require('express-session'),
     hbs = require('hbs'),
-    Question = require('./models/questions.js'),
-    mydb = require('./models');
+    mydb = require('./models'),
+    controllers = require('./controllers');
 
 // middleware
 app.use(express.static('public'));
-
 app.set('view engine', 'hbs');
-
 app.use(bodyParser.urlencoded({
-
     extended: true
-
 }));
 
 hbs.localsAsTemplateData(app);
 
-var controllers = require('./controllers');
 
 
 /**********
@@ -32,73 +26,41 @@ var controllers = require('./controllers');
 
 
 app.get('/', function homepage(req, res) {
-
     res.sendFile(__dirname + '/views/index.html');
-
 });
 
+app.get('/html', function(req, res){
+  res.render('language/html');
+})
+
+app.get('/js', function(req, res){
+  res.render('language/js');
+})
+
+app.get('/css', function(req, res){
+  res.render('language/css');
+})
+
 app.get('/form', function addQPage(req, res) {
-
     res.render('qForm')
-
 });
 
 app.get('/api', controllers.questions.index);
 
-app.get('/html', function quesitonPage(req, res) {
-
-    mydb.Question.findOne({}, function(err, quest) {
-
-        res.render('html', [{
-
-            Question: quest
-
-        }]);
-
-    });
-
-});
+// app.get('/', function quesitonPage(req, res) {
+//     mydb.Question.findOne({}, function(err, quest) {
+//         res.render('html', [{
+//             Question: quest
+//         }]);
+//     });
+// });
 
 app.get('/api/:_id', function(req, res) {
-
     mydb.Question.findOne({
-
         _id: req.params._id
-
     }, function(err, data) {
-
         res.json(data);
-
     });
-
-});
-
-app.get('/css', function quesitonPage(req, res) {
-
-    mydb.Question.findOne({}, function(err, quest) {
-
-        res.render('html', [{
-
-            Question: quest
-
-        }]);
-
-    });
-
-});
-
-app.get('/js', function quesitonPage(req, res) {
-
-    mydb.Question.findOne({}, function(err, quest) {
-
-        res.render('html', [{
-
-            Question: quest
-
-        }]);
-
-    });
-
 });
 
 app.post('/api', controllers.questions.create);

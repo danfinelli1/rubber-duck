@@ -1,37 +1,32 @@
 console.log("Sanity Check: JS is working!");
 var currQuestion = 0;
-var stackDecider = 0;
 
 $(document).ready(function() {
 
-    $.ajax({
+    var data = $.ajax({
         method: 'GET',
         url: '/api',
-        type: 'json',
-        success: getQuestion
+        type: 'json'
     });
 
     $('#htmlBtn').on('click', function(event) {
         event.preventDefault();
-        stackDecider = 1;
-        runQuestions(stackDecider);
+        window.location.href = "/html";
     });
 
     $('#cssBtn').on('click', function(event) {
         event.preventDefault();
-        stackDecider = 2;
-        runQuestions(stackDecider);
+        window.location.href = "/css";
     });
+
     $('#javascriptBtn').on('click', function(event) {
         event.preventDefault();
-        stackDecider = 3;
-        runQuestions(stackDecider);
+        window.location.href = "/js";
     });
 
     $('#yesBtn').on('click', function(event) {
         event.preventDefault();
-        currQuestion++;
-
+        window.alert('You have found your answer!');
     });
 
     $('.question-form').on('submit', function(event) {
@@ -48,63 +43,31 @@ $(document).ready(function() {
     $('#noBtn').on('click', function(event) {
         event.preventDefault();
         currQuestion++;
-        //console.log('no');
-        $.ajax({
-            method: 'GET',
-            url: '/api/' + $('.userResponse').attr('data-id'),
-            type: 'json',
-            success: nextQuestion
-        });
-
+        switch (window.location.pathname) {
+          case '/html':
+            console.log('hi');
+            runQuestions(data.responseJSON[0], currQuestion-1);
+            break;
+          case '/css':
+            console.log('css');
+            runQuestions(data.responseJSON[1], currQuestion-1);
+          case '/js':
+            console.log('js');
+            runQuestions(data.responseJSON[2], currQuestion-1);
+        }
     });
-});
 
-function runQuestions(num) {
-    switch (num) {
-        case 1:
-            window.location.href = "/html";
-            stackDecider = 1;
-            break;
-        case 2:
-            window.location.href = "/css"
-            stackDecider = 2;
-            break;
-        case 3:
-            window.location.href = "/js";
-            stackDecider = 3;
-            break;
-    }
-}
-
-function nextQuestion(data) {
-    console.log(currQuestion);
-    $('#duckBubble').empty();
-    $('#relatedLink').empty();
-        switch (stackDecider) {
-            case 1:
-            $('#duckBubble').prepend(data.questions[currQuestion].text);
-            $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks[0] + '">Learn More!</a>');
-            case 2:
-            $('#duckBubble').prepend(data.questions[currQuestion].text);
-            $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks[0] + '">Learn More!</a>');
-            case 3:
-            $('#duckBubble').prepend(data.questions[currQuestion].text);
-            $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks[0] + '">Learn More!</a>');
-          }
-    if (currQuestion === data.questions[currQuestion].length - 1) {
-        currQuestion = 0;
+    function runQuestions(data, currQuestion) {
+      console.log(data);
         $('#relatedLink').empty();
         $('#duckBubble').empty();
-        $('#relatedLink').append('You problem doesnt seem to be in this language. Please click ' + '<a href = /html>here</a>' + 'to try another language');
+        $('#duckBubble').prepend(data.questions[currQuestion].text);
+        $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks + '">Learn More!</a>');
     }
-}
 
-function getQuestion(data) {
-    console.log(currQuestion);
-    $('#duckBubble').prepend(data.questions[currQuestion].text);
-    $('#relatedLink').append('<a href="' + data.questions[currQuestion].relatedLinks[0] + '">Learn More!</a>');
-}
+    function postQuestion(data) {
+        console.log(data);
+    }
 
-function postQuestion(data) {
-    console.log(data);
-}
+
+});
