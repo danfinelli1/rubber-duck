@@ -40,19 +40,39 @@ $(document).ready(function() {
         });
     });
 
+    $('#deletebutton').on('click', function(event) {
+        event.preventDefault();
+        console.log("deleting ");
+        $.ajax({
+            method: 'DELETE',
+            url: '/api/'+$("form").attr("data-id"),
+            type: 'json',
+            data: $(this).serialize(),
+            success: postQuestion
+        });
+    });
+
+    $('.edit-form').on('submit', function(event) {
+        event.preventDefault();
+        $.ajax({
+            method: 'POST',
+            url: '/api/'+$("form").attr("data-id"),
+            type: 'json',
+            data: $(this).serialize(),
+            success: postQuestion
+        });
+    });
+
     $('#noBtn').on('click', function(event) {
         event.preventDefault();
         currQuestion++;
         switch (window.location.pathname) {
           case '/html':
-            console.log('hi');
             runQuestions(data.responseJSON[0], currQuestion-1);
             break;
           case '/css':
-            console.log('css');
             runQuestions(data.responseJSON[1], currQuestion-1);
           case '/js':
-            console.log('js');
             runQuestions(data.responseJSON[2], currQuestion-1);
         }
     });

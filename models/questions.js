@@ -4,7 +4,6 @@ var Schema = mongoose.Schema,
 QuestionSchema = new Schema({
        text: String,
        relatedLinks: String
-
 });
 
 

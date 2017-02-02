@@ -26,7 +26,7 @@ hbs.localsAsTemplateData(app);
 
 
 app.get('/', function homepage(req, res) {
-    res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/html', function(req, res){
@@ -41,29 +41,35 @@ app.get('/css', function(req, res){
   res.render('language/css');
 })
 
-app.get('/form', function addQPage(req, res) {
-    res.render('qForm')
+app.get('/new', function addQPage(req, res) {
+    res.render('qForm');
 });
 
 app.get('/api', controllers.questions.index);
 
-// app.get('/', function quesitonPage(req, res) {
-//     mydb.Question.findOne({}, function(err, quest) {
-//         res.render('html', [{
-//             Question: quest
-//         }]);
-//     });
-// });
-
 app.get('/api/:_id', function(req, res) {
-    mydb.Question.findOne({
+  mydb.Question.findOne({
         _id: req.params._id
     }, function(err, data) {
         res.json(data);
     });
 });
 
+app.get('/edit/:_id', function (req, res){
+  mydb.Question.findOne({
+        _id: req.params._id
+    }, function(err, data) {
+       res.render('edit', { question: data });
+    });
+});
+
+app.get('/admin', controllers.questions.admin);
+
+app.post('/api/:_id', controllers.questions.edit);
+
 app.post('/api', controllers.questions.create);
+
+app.delete('/api/:_id', controllers.questions.destroy);
 
 
 
@@ -72,6 +78,6 @@ app.post('/api', controllers.questions.create);
  **********/
 
 // listen on port 3000
-app.listen(process.env.PORT || 3000, function() {
-    console.log('Express server is running on http://localhost:3000/');
+app.listen(process.env.PORT || 8080, function() {
+    console.log('Express server is running on http://localhost:8080/');
 });

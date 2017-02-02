@@ -4,7 +4,7 @@ var QuestionSchema = require('./questions.js');
 var Schema = mongoose.Schema,
 LanguageSchema = new Schema({
      name: String,
-     questions: [QuestionSchema.schema]
+     questions: [String]
 });
 
 
